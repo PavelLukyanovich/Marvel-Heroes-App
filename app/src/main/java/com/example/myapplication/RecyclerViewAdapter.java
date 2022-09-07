@@ -6,23 +6,23 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewViewHolder>{
 
-    public static class RecyclerViewHolder extends RecyclerView.ViewHolder {
+    public static class RecyclerViewViewHolder extends RecyclerView.ViewHolder {
 
-        public RecyclerViewHolder(@NonNull View itemView) {
+        public RecyclerViewViewHolder(@NonNull View itemView) {
             super(itemView);
         }
     }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerViewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerViewViewHolder holder, int position) {
 
     }
 
