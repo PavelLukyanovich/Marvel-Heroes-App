@@ -1,9 +1,14 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -11,13 +16,14 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    ArrayList<RecyclerViewItem> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<RecyclerViewItem> arrayList = new ArrayList<>();
+        arrayList = new ArrayList<>();
         arrayList.add(new RecyclerViewItem(R.drawable.spider_man, "Человек-паук", "Челове́к-пау́к, настоящее имя Пи́тер Бе́нджамин Па́ркер"));
         arrayList.add(new RecyclerViewItem(R.drawable.wolverine, "Росомаха", "Росомаха, настоящее имя — Джеймс Хоулетт"));
         arrayList.add(new RecyclerViewItem(R.drawable.iron_man, "Железный человек", "Желе́зный челове́к, настоящее имя — Э́нтони Э́двард «То́ни» Старк"));
@@ -40,5 +46,15 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add(new RecyclerViewItem(R.drawable.iron_fist, "Железный кулак", "Железный Кулак, настоящее имя Дэнни Рэнд"));
         arrayList.add(new RecyclerViewItem(R.drawable.jessica_jones, "Джессика Джонс", "Джессика Кампбелл Джонс Кейдж, также известная под именами Сокровище"));
         arrayList.add(new RecyclerViewItem(R.drawable.venom, "Веном", "Ве́ном — антигерой комиксов издательства Marvel Comics.+"));
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        adapter = new RecyclerViewAdapter(arrayList, this);
+        layoutManager = new LinearLayoutManager(this);
+
+        recyclerView.setAdapter(adapter);
+
+        recyclerView.setLayoutManager(layoutManager);
+
     }
 }
