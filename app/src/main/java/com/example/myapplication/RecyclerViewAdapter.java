@@ -42,7 +42,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         @Override
         public void onClick(View v) {
+            int position = getAdapterPosition();
+            RecyclerViewItem recyclerViewItem = arrayList.get(position);
+
             Intent intent = new Intent(context, InfoActivity2.class);
+            intent.putExtra("title", recyclerViewItem.getText1());
+            intent.putExtra("description", recyclerViewItem.getText2());
             context.startActivity(intent);
 
         }
@@ -72,10 +77,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return arrayList.size();
     }
 
-    public interface OnViewListener {
-        void onViewClick(int position);
-
-    }
 
 }
 
